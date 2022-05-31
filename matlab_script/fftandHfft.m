@@ -31,6 +31,7 @@ function [t,data,f,Fx,h_x,H_X] = fftandHfft(data,Fs)
     subplot(4,1,1),plot(t,data),title('Origin data'),xlabel('t/s'),ylabel('Amplitude');
     subplot(4,1,2),plot(f,Fx);
     title('Furier transfrom'),xlabel('Frequcy(Hz)'),ylabel('Amplitude');
+    % x�᷶Χ
 %     xlim([0,1000]);
     legend('x(f)');
     subplot(4,1,3),plot(t,h_x),title('Hilbert'),xlabel('t/s'),ylabel('Amplitude');
