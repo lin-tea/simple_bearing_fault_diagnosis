@@ -2,7 +2,7 @@
 ---
 **摘要**: 用传统的轴承故障诊断方法对轴承的振动信号进行分析诊断，得出其故障类型、健康状态。只是一个简单的学习、诊断QAQ。  
 **数据集**: [paderborn](https://mb.uni-paderborn.de/en/kat/main-research/datacenter/bearing-datacenter)   
-**方法**: 希尔伯特(Hilbert)包络解调。MATLAB.
+**方法**: 希尔伯特(Hilbert)包络解调。MATLAB.   
 **目录**：
 - [引言](#引言)
 - [采集装置](#采集装置)  
