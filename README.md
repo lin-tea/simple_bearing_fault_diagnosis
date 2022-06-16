@@ -76,7 +76,6 @@
     
     (z为滚动体个数，f为转动频率，α为轴承接触角，d为滚动体直径，D为滚道节径)
     
-- **官方论文Paper**: [here](https://mb.uni-paderborn.de/fileadmin/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf)  
 
 ## 包络解调
 - 故障所引起的低频（通常是数百HZ以内）冲击脉冲激起了高频（数十倍于冲击频率）共振波形，对它进行包络、检波、低通滤波（即解调），会获得一个对应于低频冲击的而又放大并展宽的共振解调波形。  
@@ -94,20 +93,33 @@
 - **原始数据以及傅里叶变换**   
   - 原始数据:
   （`N09_M07_F10_KA01_2.mat`）  
-  <div align=center><img src="./images/KA01_fig1.png" height="75%" width="75%"></div>
-  
-  - 简单分析：从傅里叶频谱图，可以看到有间隔为46的变频带。  
-  - 用平均转速的转频作为参考，算出特征频率，在包络谱中绘制得到如下图：
-    <div align=center><img src="./images/KA01_fig2.png" height="50%" width="50%"></div>  
+  <div align=center><img src="./images/KA01_fig1.png" height="75%" width="75%"> </div>
     
-    可以看到，基本46Hz即外圈故障的特征频率出现，因此，该轴承为外圈故障特征。
+  - 简单分析：可以看到数据比较干净；从傅里叶频谱图，可以看到有间隔为46的变频带。  
 
+   
 - 包络解调分析  
-
-    - [代码见](./matlab_script)  
-
+  - 用平均转速的转频作为参考，算出特征频率，在包络谱中绘制得到如下图：
+    <div align=center><img src="./images/KA01_fig2.png" height="50%" width="40%"><img src="./images/KI01_fig1.png" height="75%" width="60%"></div>  
+    
+    左：可以看到，基本46Hz即外圈故障的特征频率出现，因此，该轴承为外圈故障特征；而右则为内圈故障。  
+    ```matlab []
+        % Hilbert and fft 对原始信号进行Hilbert包络 并且进行傅里叶变换
+        h_x = hilbert(data); %Hilbert
+        h_x = abs(h_x);    %取绝对值
+        h_x = h_x - mean(h_x);  %减去均值
+        %进行傅里叶变换
+        H_X = abs(fft(h_x)/L);  
+        H_X = H_X(1:int32(L/2+1));
+        H_X(2:end-1) = 2*H_X(2:end-1);
+    ```   
+    - [代码见](./matlab_script/)  
+    - [Hilbert求包络](https://blog.csdn.net/anddisking/article/details/102224111?utm_medium=distribute.pc_relevant.none-task-blog-title-2&spm=1001.2101.3001.4242)  
+    
+    <div align=center><img src="./images/KB23_FIG1.png" height="75%" width="75%"></div>   
+        内外圈均故障轴承。
 
 ---
 ## Reference:
-[1]  
+[1] [Paderborn,PDF](https://mb.uni-paderborn.de/fileadmin/kat/PDF/Veroeffentlichungen/20160703_PHME16_CM_bearing.pdf)  
 
