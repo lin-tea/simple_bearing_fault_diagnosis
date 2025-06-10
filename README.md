@@ -69,10 +69,10 @@
     
     |故障特征|计算公式|
     |---|---|
-    |外圈故障|$ f_{BPFO} = 0.5zf(1-{d\over D}cos\alpha) $ |
-    |内圈故障|$ f_{BPFI} = 0.5zf(1+{d\over D}cos\alpha) $ |
-    |滚动体故障|$ f_{BSF} = 0.5{D\over d}f(1-({d\over D})^2cos^2\alpha) $ |
-    |保持架故障|$ f_{FTF} = 0.5f(1-({d\over D})cos\alpha) $ |    
+    |外圈故障|$`f_{BPFO} = 0.5zf(1-{d\over D}cos\alpha)`$ |
+    |内圈故障|$`f_{BPFI} = 0.5zf(1+{d\over D}cos\alpha)`$ |
+    |滚动体故障|$`f_{BSF} = 0.5{D\over d}f(1-({d\over D})^2cos^2\alpha)`$ |
+    |保持架故障|$`f_{FTF} = 0.5f(1-({d\over D})cos\alpha)`$ |    
     
     (z为滚动体个数，f为转动频率，α为轴承接触角，d为滚动体直径，D为滚道节径)
     
